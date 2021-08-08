@@ -2,6 +2,8 @@
   'use strict';
   var App = window.App;
   var DataStore = App.DataStore;
+  var Store = App.Store;
+  var Order = App.Order;
 
   var datastore = new DataStore();
   // Agregar propiedades al objeto
