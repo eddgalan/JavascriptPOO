@@ -3,12 +3,14 @@
   var App = window.App;
   var DataStore = App.DataStore;
   var Store = App.Store;
-  var Order = App.Order;
+  var ItemOrder = App.ItemOrder;
 
   var datastore = new DataStore();
   var store = new Store('Alpha-00', datastore);
-  var order = new Order('email@correo.com', 'PS4', 8999);
+  var order = new ItemOrder('correo@dominio.com', 'Play Station 4', 8999);
 
   store.createOrder(order);
   store.printOrders();
+
+  console.log(window);
 }(window));
