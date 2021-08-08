@@ -2,11 +2,19 @@
 function DataStore(){
   this.data = {};
 }
-// Definimos la función 'add' dentro del prototipo
+// Función que agrega una nueva propiedad al objeto
 DataStore.prototype.add = function(key, value){
   this.data[key] = value;
 }
-/*
-Se agregó el método add al prototipo. De esta forma el método sólo aparece una vez en el objeto
-ver el console.log() del objeto en el apartado prototype debe aparecer el método 'add'
-*/
+// Función que devuelve una propiedad del objeto
+DataStore.prototype.get = function(key){
+  return this.data[key];
+}
+// Función que devuelve todas las propiedades del objeto
+DataStore.prototype.getAll = function(){
+  return this.data;
+}
+// Función que remueve una propiedad
+DataStore.prototype.remove = function(key){
+  delete this.data[key];
+}
