@@ -10,7 +10,8 @@
   var order = new ItemOrder('correo@dominio.com', 'Play Station 4', 8999);
 
   store.createOrder(order);
-  store.printOrders();
+  // store.printOrders();
 
+  order.displayOrder();
   console.log(window);
 }(window));
