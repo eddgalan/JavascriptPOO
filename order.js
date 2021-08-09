@@ -26,6 +26,22 @@
     console.log('Item: ' + this.item + " Precio: $" + this.price);
   };
 
+  var obj1 = {email: 'alguien1@correo.com'};
+  var obj2 = {email: 'alguien2@correo.com'};
+  // Ejemplo con call()
+  BaseOrder.prototype.displayOrder.call(obj1);
+  // Ejemplo con bind()
+  var displayEmail = BaseOrder.prototype.displayOrder.bind(obj2);
+  displayEmail();
+
+  /*
+  call() y bind() pueden servir para llamar funciones en casos diferentes a los originales.
+  Son muy utilizados en la POO en Javascript.
+  * call() : Llama directamente a la función.
+  * bind() : Crea una copia que despuś se puede llamar.
+  Ambos reemplazan el valor de this por el valor que le indiquemos.
+  */
+
   App.ItemOrder = ItemOrder;
   window.App = App;
 }());
