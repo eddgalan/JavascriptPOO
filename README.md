@@ -1,2 +1,2 @@
 # JavascriptPOO
-Ejercicios sencillos con Javascript usando Programación Orientada a Objetos
+Curso de Programación Orientada a Objetos en JavaScript y ejercicios sencillos
