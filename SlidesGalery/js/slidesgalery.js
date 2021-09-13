@@ -13,13 +13,13 @@
     for(let img of this.data.imgs){
       html += "<div class='mySlides'>"+
                 "<div class='numbertext'>"+ cont +" / "+ num_imgs +"</div>"+
-                  "<img src='galery/couple-3798371_1280.jpg' style='width:100%'>"+
+                  "<img src='"+ img.path +"' style='width:100%'>"+
               "</div>";
       cont++;
     }
     // Escribe los botones de siguiente y anterior
-    html += "<a class='prev' onclick='plusSlides(-1)'>&#10094;</a>"+
-            "<a class='next' onclick='plusSlides(1)'>&#10095;</a>";
+    html += "<a class='prev' onclick='showImage(-1)'>&#10094;</a>"+
+            "<a class='next' onclick='showImage(1)'>&#10095;</a>";
     // Escribe el texto de la imágen
     html += "<div class='caption-container'>"+
               "<p id='caption'></p>"+
@@ -29,15 +29,17 @@
     cont = 1;
     for(let img of this.data.imgs){
       html += "<div class='column'>"+
-                "<img class='demo cursor' src='"+ img.path +"' style='width:100%' onclick='currentSlide("+ cont +")' alt='"+ img.alt +"'>"+
+                "<img class='demo cursor' src='"+ img.path +"' style='width:100%' onclick='showCurrentImg("+ cont +")' alt='"+ img.alt +"'>"+
               "</div>";
+      cont++;
     }
     html += "</div>";
     document.getElementById(container).innerHTML = html;
   }
 
   // Función que muestra la imagen seleccionada, siguiente o anterior
-  SlideGalery.prototype.showSlides = function(n){
+  SlideGalery.prototype.showSlides = function(n=1){
+    this.data.slideIndex = n;
     var i;
     var slides = document.getElementsByClassName("mySlides");
     var dots = document.getElementsByClassName("demo");
@@ -56,11 +58,11 @@
   }
   // Next/previous controls
   SlideGalery.prototype.plusSlides = function(n){
-    this.showSlides(slideIndex += n);
+    this.showSlides(this.data.slideIndex += n);
   }
   // Función que muestra la imágen seleccionada
   SlideGalery.prototype.currentSlide = function(n){
-    this.showSlides(slideIndex = n);
+    this.showSlides(this.data.slideIndex = n);
   }
 
   App.SlideGalery = SlideGalery;
